@@ -5,7 +5,7 @@ import requests
 import matplotlib.pyplot as plt
 
 # Title
-st.title("BTC-USD Weekly GBM Swing Range (Free Binance API)")
+st.title("BTC-USD Weekly GBM Swing Range")
 
 # Sidebar inputs
 st.sidebar.header("Parameters")
