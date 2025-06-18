@@ -75,8 +75,12 @@ df.dropna(inplace=True)
 
 # Fit GBM parameters
 mu_d, sigma_d = fit_gbm(df['r'])
-st.write(f"**Estimated daily drift (μ)**: {mu_d:.6f}")
-st.write(f"**Estimated daily volatility (σ)**: {sigma_d:.6f}")
+# Convert to weekly metrics (7 days)
+mu_w = mu_d * 7
+sigma_w = sigma_d * np.sqrt(7)
+# Display as percentages
+st.write(f"**Estimated weekly drift (μ₇)**: {mu_w * 100:.4f}%")
+st.write(f"**Estimated weekly volatility (σ₇)**: {sigma_w * 100:.4f}%")
 
 # Latest price
 S0 = df['S'].iloc[-1]
